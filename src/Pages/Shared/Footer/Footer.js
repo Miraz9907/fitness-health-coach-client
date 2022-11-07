@@ -1,10 +1,12 @@
 import React from 'react';
+import logo from '../../../assests/images/logo.jpg';
+
 
 const Footer = () => {
     return (
         <footer className="footer p-32 bg-black text-white">
   <div>
-    {/* <img src={logo} alt="" /> */}
+    <img src={logo} className="rounded-3xl h-32" alt="" />
     <p>ACME Industries Ltd.<br/>Providing reliable tech since 1992</p>
   </div> 
   <div>
