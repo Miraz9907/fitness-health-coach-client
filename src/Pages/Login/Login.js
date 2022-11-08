@@ -1,9 +1,13 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import log from '../../assests/images/login.jpg'
 
 const Login = () => {
-    const {login} = useContext(AuthContext);
+    const {login,googleLogin} = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate();
     const handleLogin = event =>{
         event.preventDefault();
         const form = event.target;
@@ -15,17 +19,30 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            navigate('/');
 
         })
         .catch(err => console.error(err))
+    }
+
+    const handleGoogle = () =>{
+      googleLogin(googleProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        navigate('/');
+        
+      })
+      .catch(error =>console.error(error))
+  
     }
     return (
         <div className="hero w-full my-20">
         <div className="hero-content grid gap-10 md:grid-cols-2 flex-col lg:flex-row">
           <div className="text-center lg:text-left">
-            <img className="w-3/4" src="" alt="" />
+            <img className="w-96 h-96" src={log} alt="" />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-5">
             <h1 className="text-5xl text-center font-bold">Login</h1>
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
@@ -63,6 +80,18 @@ const Login = () => {
                 />
               </div>
             </form>
+            <div className="text-center">
+          <p className="text-center">OR Sign in with</p>
+          <button
+            onClick={handleGoogle}
+            variant="light"
+            type="submit"
+            className="me-4 fs-3"
+          > Google
+            {/* <FaGoogle className="text-warning"></FaGoogle> */}
+          </button>
+          </div>
+
             <p className="text-center">
               New to Genius Car{" "}
               <Link className="text-orange-600 font-bold" to="/signup">

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-
+import signup from '../../assests/images/signup.png'
 const SignUp = () => {
     const {createAUser} = useContext(AuthContext);
     const handleSignup = event =>{
@@ -23,9 +23,9 @@ const SignUp = () => {
         <div className="hero w-full my-20">
         <div className="hero-content grid gap-10 md:grid-cols-2 flex-col lg:flex-row">
           <div className="text-center lg:text-left">
-            <img className="w-3/4" src="" alt="" />
+            <img className="w-96 h-96" src={signup} alt="" />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-5">
             <h1 className="text-5xl text-center font-bold">Sign Up</h1>
             <form onSubmit={handleSignup} className="card-body">
               <div className="form-control">

@@ -16,7 +16,6 @@ const Header = () => {
     {
       user?.email ? 
       <> 
-      <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
       <li className='font-semibold'>
         <button className='btn-ghost'>My reviews</button>
         </li>
