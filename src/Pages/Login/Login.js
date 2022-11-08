@@ -2,7 +2,8 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import log from '../../assests/images/login.jpg'
+import log from '../../assests/images/login.jpg';
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     const {login,googleLogin} = useContext(AuthContext);
@@ -80,24 +81,19 @@ const Login = () => {
                 />
               </div>
             </form>
-            <div className="text-center">
-          <p className="text-center">OR Sign in with</p>
-          <button
-            onClick={handleGoogle}
-            variant="light"
-            type="submit"
-            className="me-4 fs-3"
-          > Google
-            {/* <FaGoogle className="text-warning"></FaGoogle> */}
-          </button>
-          </div>
-
+            
             <p className="text-center">
-              New to Genius Car{" "}
+              New to Health Coach{" "}
               <Link className="text-orange-600 font-bold" to="/signup">
                 Sign Up
               </Link>
             </p>
+            <div className="text-center">
+          <p className="text-center">OR Sign in with</p>
+          <button onClick={handleGoogle} variant="light" type="submit" className="me-4 btn fs-3"> 
+            <FcGoogle className='mr-2 text-3xl'/> Sign in with Google
+          </button>
+          </div>
           </div>
         </div>
       </div>

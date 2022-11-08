@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBeer } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
 const MyServices = ({service}) => {
     const {service_id, title,price, img,description } = service;
@@ -15,7 +15,7 @@ const MyServices = ({service}) => {
         <p>{description.slice(0,100)+"..."}</p>
         <div className="card-actions justify-center">
           <button className="btn ">View Details
-          <FaBeer className="ml-2"></FaBeer>
+          <FaArrowRight className="ml-2"></FaArrowRight>
           </button>
           
         </div>
