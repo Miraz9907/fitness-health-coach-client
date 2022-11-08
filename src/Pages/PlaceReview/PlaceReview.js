@@ -20,6 +20,8 @@ const PlaceReview = () => {
         const img = form.photoUrl.value;
         const msg = form.message.value;
 
+
+
         const review = {
             service: _id,
             serviceName: title,
@@ -31,7 +33,6 @@ const PlaceReview = () => {
             img,
             msg
         }
-
         fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {
@@ -63,7 +64,7 @@ const PlaceReview = () => {
                 <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                 <input name="photoUrl" type="text" placeholder="Photo Url" className="input input-ghost w-full  input-bordered" required />
                 <input name="dateTime" type="text" placeholder="Date" defaultValue={dateTime} className="input input-ghost w-full  input-bordered" readOnly />
-                <input name="rating" type="text" placeholder="Rating" className="input input-ghost w-full  input-bordered" />
+                <input name="rating" type="number" placeholder="Rating" className="input input-ghost w-full  input-bordered" />
             </div>
             <textarea name="message" className="textarea textarea-bordered mt-6 h-24 w-full" placeholder="Place Your Review here" required></textarea>
             <div className='text-center'>

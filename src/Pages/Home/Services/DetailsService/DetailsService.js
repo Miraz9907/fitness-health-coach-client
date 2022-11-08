@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
+import Review from "../../../Review/Review";
 
 
 const DetailsService = () => {
@@ -27,9 +28,10 @@ const DetailsService = () => {
       </div>
       
     </div>
-    <div className="text-center">
-        <h3 className="text-2xl font-semibold text-red-300">Reviews</h3>
-        
+    <div className="">
+        <h3 className="text-2xl font-semibold text-red-300 text-center">Reviews</h3>
+        <Review serviceId ={_id}></Review>
+        <div className="text-center">
         {
             user?.email?
             <div>
@@ -41,6 +43,8 @@ const DetailsService = () => {
             </div>
 
         }
+        </div>
+       
     </div>
     </div>
   );
