@@ -88,9 +88,9 @@ const Login = () => {
                 Sign Up
               </Link>
             </p>
-            <div className="text-center">
+            <div className="text-center mt-5">
           <p className="text-center">OR Sign in with</p>
-          <button onClick={handleGoogle} variant="light" type="submit" className="me-4 btn fs-3"> 
+          <button onClick={handleGoogle} variant="light" type="submit" className="me-4 mt-3 btn fs-3"> 
             <FcGoogle className='mr-2 text-3xl'/> Sign in with Google
           </button>
           </div>

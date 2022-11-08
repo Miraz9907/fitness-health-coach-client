@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import MyServices from './MyServices';
 
 const Services = () => {
     const [services, setServices] = useState([]);
     useEffect( () =>{
-        fetch('services.json')
+        fetch('http://localhost:5000/services')
         .then(res => res.json())
         .then(data => setServices(data))
     },[])
@@ -18,11 +19,14 @@ const Services = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
                     services.map(service => <MyServices
-                    key={service.service_id}
+                    key={service._id}
                     service ={service}
                     ></MyServices>)
 
                 }
+            </div>
+            <div className='text-center mt-5'>
+                <Link to = '/services'> <button className='btn btn-primary'>see all services</button> </Link>
             </div>
         </div>
     );

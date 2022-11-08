@@ -15,8 +15,8 @@ const About = () => {
             this field
           </h1>
           <p className="py-3">
-            I am the creator of this health coach training program. I am
-            qualified with more then 5 years of experiences And with 4
+            Hey, My name is Jhonny Terrens. I am the creator of this health coach training programs. I am
+            qualified with more then 5 years of experiences And with 4 training
             certificates.{" "}
           </p>
           <p className="py-3">

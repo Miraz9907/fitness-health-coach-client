@@ -76,7 +76,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-active btn-secondary">mail me</button>
+        <button className="btn btn-active btn-secondary">Contact me</button>
       </div>
     </div>
   );
