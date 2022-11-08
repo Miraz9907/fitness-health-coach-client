@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
 
 const SpecificReviews = ({review}) => {
     console.log(review);
@@ -17,7 +18,7 @@ const SpecificReviews = ({review}) => {
             <p>Item:{serviceName}</p>
             <p>Feedback:{msg}</p>
             <p className="flex items-center">
-              {/* <AiFillStar className="text-orange-400" /> <span>{rating}</span> */}
+                <FaStar className='text-orange-400 mr-1'></FaStar>{rating}
             </p>
           </div>
         </div>

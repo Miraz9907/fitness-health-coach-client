@@ -31,7 +31,8 @@ const DetailsService = () => {
     <div className="">
         <h3 className="text-2xl font-semibold text-red-300 text-center">Reviews</h3>
         <Review serviceId ={_id}></Review>
-        <div className="text-center">
+         
+        <div className="text-center mt-4">
         {
             user?.email?
             <div>
