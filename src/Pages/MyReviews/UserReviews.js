@@ -1,10 +1,11 @@
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { FcDeleteRow } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const UserReviews = ({ review, handleDelete }) => {
-  console.log(review);
-  const { _id, dateTime, img, msg, rating, serviceName, reviewer,status } = review;
+//   console.log(review);
+  const { _id, dateTime, img, msg, rating, serviceName, reviewer } = review;
   return (
     <tr>
       <td>
@@ -31,10 +32,12 @@ const UserReviews = ({ review, handleDelete }) => {
       <td>{rating}</td>
       <td>{dateTime}</td>
       <td>
+        <Link to={`/update/${_id}`}>
         <button className="btn btn-ghost">
-          {/* <FaEdit></FaEdit> */}
-          {status ? status : "pending"}
+          <FaEdit></FaEdit>
+         
         </button>
+        </Link>
       </td>
     </tr>
   );
