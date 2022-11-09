@@ -1,6 +1,8 @@
 import React from "react";
+import useTitle from "../../hooks/useTitle";
 
 const Blog = () => {
+    useTitle('Blog')
   return (
     
             <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
@@ -9,7 +11,7 @@ const Blog = () => {
                         Blog
                     </h2>
                     <p className="font-normal text-gray-500 sm:text-xl dark:text-gray-700">
-                        Basic Question about Frontend and Server
+                        A few Basic Question about Backend and Server. 
                     </p>
                 </div>
                 <div className="grid gap-6 lg:grid-cols-2">
@@ -18,18 +20,8 @@ const Blog = () => {
                             Difference between SQL and NoSQL
                         </h2>
                         <p className="mb-5 font-normal text-black">
-                            SQL databases are relational, NoSQL databases are
-                            non-relational. <br />
-                            SQL databases use structured query language and have
-                            a predefined schema. NoSQL databases have dynamic
-                            schemas for unstructured data. <br /> SQL databases
-                            are vertically scalable, while NoSQL databases are
-                            horizontally scalable. SQL databases are
-                            table-based, while NoSQL databases are document,
-                            key-value, graph, or wide-column stores. <br />
-                            SQL databases are better for multi-row transactions,
-                            while NoSQL is better for unstructured data like
-                            documents or JSON.
+                            <strong>SQL</strong> These are RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS). These databases have fixed or static or predefined schema. SQL database are Vertically Scalable and Its follows ACID property. The SQL databases are best suited for complex queries. <br /> <strong>Example</strong> MySQL, PostgreSQL, Oracle, MS-SQL Server etc. <br />
+                            <strong>NoSQL</strong> These are Non-relational or distributed database system. NoSQL have dynamic schema. NoSQL databases are Horizontally scalable. 	Follows CAP(consistency, availability, partition tolerance. These databases are not so good for complex queries <br /> <strong>Example</strong> MongoDB, GraphQL, HBase, Neo4j, Cassandra etc. <br />
                         </p>
                     </article>
                     <article className="p-6 rounded-lg border shadow-md ">
@@ -37,21 +29,7 @@ const Blog = () => {
                             What is JWT, and how does it work?
                         </h2>
                         <p className="mb-5 font-normal text-black">
-                            JWTs or JSON Web Tokens are most commonly used to
-                            identify an authenticated user. They are issued by
-                            an authentication server and are consumed by the
-                            client-server (to secure its APIs). <br />
-                            JWT differ from other web tokens in that they
-                            contain a set of claims. Claims are used to transmit
-                            information between two parties. What these claims
-                            are depends on the use case at hand. For example, a
-                            claim may assert who issued the token, how long it
-                            is valid for, or what permissions the client has
-                            been granted. <br /> A JWT is a string made up of
-                            three parts, separated by dots (.), and serialized
-                            using base64. Once decoded, you will get two JSON
-                            strings: <br /> 1. The header and the payload.{" "}
-                            <br /> 2. The signature.
+                            <strong>JWT</strong> stands for JSON Wed Token. It is An open standard (RFC 7519) for securely transmitting information between parties as JSON object. It is compact, readable and digitally signed using a private key/ or a public key pair by the Identity Provide. WTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are
                         </p>
                     </article>
                     <article className="p-6 rounded-lg border shadow-md ">
@@ -60,19 +38,8 @@ const Blog = () => {
                             NodeJS?
                         </h2>
                         <p className="mb-5 font-normal text-black">
-                            JavaScript is a proper high-level programming
-                            language used to create web scripts whereas Node.js
-                            is a run time environment built on google's v8
-                            engine. <br /> JavaScript is executed in the browser
-                            whereas using Node.js gives us the ability to
-                            execute JavaScript outside the browser. <br />{" "}
-                            JavaScript can manipulate DOM or add HTML within
-                            whereas Node.js doesn't have the capability to add
-                            HTML. <br />
-                            JavaScript is mainly used to create front end web
-                            applications or develop client-side whereas Node.js
-                            is used on the back end development that is
-                            server-side development
+                            <strong>javascript</strong> Javascript is a Scripting language. It is mostly abbreviated as JS. It can be said that Javascript is the updated version of the ECMA script. Javascript is a high-level programming language that uses the concept of Oops but it is based on prototype inheritance <br />
+                            <strong>NodeJs</strong> NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development. <br />
                         </p>
                     </article>
                     <article className="p-6 rounded-lg border shadow-md ">
@@ -81,18 +48,8 @@ const Blog = () => {
                             time?
                         </h2>
                         <p className="mb-5 font-normal text-black">
-                            NodeJS receives multiple client requests and places
-                            them into EventQueue. NodeJS is built with the
-                            concept of event-driven architecture. NodeJS has its
-                            own EventLoop which is an infinite loop that
-                            receives requests and processes them. EventLoop is
-                            the listener for the EventQueue. If NodeJS can
-                            process the request without I/O blocking then the
-                            event loop would itself process the request and
-                            sends the response back to the client by itself.
-                            But, it is possible to process multiple requests
-                            parallelly using the NodeJS cluster module or
-                            worker_threads module.
+                        As is, node. js can process upwards of 1000 requests per second and speed limited only to the speed of your network card. Note that it's 1000 requests per second not clients connected simultaneously. It can handle the 10000 simultaneous clients without issue.
+                        They handle 40K requests per second having Node.
                         </p>
                     </article>
                 </div>

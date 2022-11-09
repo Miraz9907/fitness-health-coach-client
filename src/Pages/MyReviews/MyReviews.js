@@ -1,15 +1,31 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import UserReviews from "./UserReviews";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../hooks/useTitle";
 
 const MyReviews = () => {
-  const { user } = useContext(AuthContext);
+  useTitle('My Reviews');
+    
+  const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, [user?.email]);
+    fetch(`http://localhost:5000/review?email=${user?.email}`,{
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('health-token')}`
+        }
+    })
+      .then((res) => {
+        if(res.status === 401 || res.status === 403){
+            // return logOut()
+        }
+        return res.json()
+    })
+      .then((data) => {
+        setReviews(data)
+    })
+  }, [user?.email, logOut]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("are you sure to delete");
@@ -21,7 +37,16 @@ const MyReviews = () => {
       .then(data =>{
         console.log(data);
         if(data.deletedCount > 0){
-            alert('deleted successfully');
+            toast.success("deleted review successfully", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
             const remaining = reviews.filter(review => review._id !== id);
             setReviews(remaining);
         }
@@ -33,7 +58,7 @@ const MyReviews = () => {
     <div>
       {reviews.length === 0 ? (
         <>
-          <h2>No reviews were added</h2>
+          <h2 className="text-center text-4xl text-red-400 font-bold">No reviews were added</h2>
         </>
       ) : (
         <>
@@ -53,7 +78,8 @@ const MyReviews = () => {
                 </tr>
               </thead>
               <tbody>
-                {reviews.map((review) => (
+                {
+                reviews.map((review) => (
                   <UserReviews
                     key={review._id}
                     review={review}
@@ -65,6 +91,7 @@ const MyReviews = () => {
           </div>
         </>
       )}
+      <ToastContainer />
     </div>
   );
 };

@@ -2,8 +2,10 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { ImageViewer } from "react-image-viewer-dv";
 import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const MyServices = ({ service }) => {
+  useTitle('Services');
   const { _id,title, price, img, description, rating } = service;
   return (
     <div className="card w-96 bg-base-100 shadow-xl">

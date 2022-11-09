@@ -7,24 +7,24 @@ const Footer = () => {
       <div>
         <img src={logo} className="rounded-3xl h-32" alt="" />
         <p>
-          ACME Industries Ltd.
+          Health Coach
           <br />
-          Providing reliable tech since 1992
+          Providing reliable Fitness program. 
         </p>
       </div>
       <div>
         <span className="footer-title">Services</span>
         <a href="/" className="link link-hover">
-          Branding
+          Yoga
         </a>
         <a href="/" className="link link-hover">
-          Design
+          Workout Routing
         </a>
         <a href="/" className="link link-hover">
-          Marketing
+          Diet Selection
         </a>
         <a href="/" className="link link-hover">
-          Advertisement
+          weight loss
         </a>
       </div>
       <div>

@@ -28,7 +28,7 @@ const Header = () => {
             <Link to='/addservice'>Add service</Link>
           </li>
           <li className="font-semibold">
-            <Link to="/" onClick={handleLogOut} className="btn-ghost">
+            <Link to="/login" onClick={handleLogOut} className="btn-ghost">
               Logout
             </Link>
           </li>

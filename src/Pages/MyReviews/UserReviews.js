@@ -2,9 +2,11 @@ import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { FcDeleteRow } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const UserReviews = ({ review, handleDelete }) => {
-//   console.log(review);
+    useTitle('UserReviews')
+
   const { _id, dateTime, img, msg, rating, serviceName, reviewer } = review;
   return (
     <tr>
