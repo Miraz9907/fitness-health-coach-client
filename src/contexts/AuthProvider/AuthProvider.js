@@ -23,11 +23,11 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, provider)
     }
      const logOut = () =>{
-        setLoading(true);
         return signOut(auth);
      }
      useEffect(() =>{
         const unsubscribe = onAuthStateChanged(auth, currentUser =>{
+            console.log("user from auth state ", currentUser);
             setUser(currentUser);
             setLoading(false)
         });

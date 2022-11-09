@@ -2,7 +2,7 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
 const SpecificReviews = ({review}) => {
-    console.log(review);
+    // console.log(review);
     const {msg, rating, reviewer, serviceName, img} = review
 
     return (

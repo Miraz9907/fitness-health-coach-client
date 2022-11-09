@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const PlaceReview = () => {
@@ -19,8 +21,6 @@ const PlaceReview = () => {
         const dateTime = form.dateTime.value;
         const img = form.photoUrl.value;
         const msg = form.message.value;
-
-
 
         const review = {
             service: _id,
@@ -44,7 +44,18 @@ const PlaceReview = () => {
             .then(data => {
                 console.log(data)
                 if(data.acknowledged){
-                    alert('Review placed successfully')
+                    // alert('Review placed successfully')
+                    toast.success("Review Post successfully", {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                    });
+
                     form.reset();
                     
                 }
@@ -73,6 +84,7 @@ const PlaceReview = () => {
 
             
         </form>
+        <ToastContainer />
     </div>
     );
 };

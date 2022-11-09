@@ -40,12 +40,11 @@ const DetailsService = () => {
             </div>
             : 
             <div>
-                <Link to='/login'> <button className="btn btn-primary">Login to place a Review</button> </Link>
+                <Link to={`/review/${_id}`}> <button className="btn btn-primary">Please login to add a review</button> </Link>
+                {/* <h2>Please login to add a review <Link to={`/review/${_id}`}> <button className="btn ml-3">Login</button> </Link> </h2> */}
             </div>
-
         }
         </div>
-       
     </div>
     </div>
   );
