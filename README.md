@@ -13,13 +13,14 @@ Health Coach
 - But an unknown user can see about me and also can see only three services. In the buttom of the services section there is a SEE All Button. then user can see all services and service details. <br/>
 - user can log into the website using google, email password. <br/>
 - A user must loggined to give me a review <br/>
-- user cannot see the review page without login.
-- to see the premium content user must login
+- user cannot see the review page without login. <br/>
+- To palce a review you must login first.
 
 ### framework/library
 - Tailwind
 - daisy ui
 - flowbite
+- react toastify
 - react
 - react icons font awesome
 - react router dom 
