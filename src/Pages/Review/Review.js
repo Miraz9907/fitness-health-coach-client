@@ -4,9 +4,7 @@ import SpecificReviews from "../PlaceReview/SpecificReviews/SpecificReviews";
 const Review = ({ serviceId }) => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(
-      `https://health-coach-server-eta.vercel.app/review?service=${serviceId}`
-    )
+    fetch(`https://health-coach-server-eta.vercel.app/review/service=${serviceId}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

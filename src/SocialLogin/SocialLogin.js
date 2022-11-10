@@ -19,7 +19,7 @@ const SocialLogin = () => {
         const currentUser = {
           email: user.email,
         };
-        //get jwt token
+        //jwt token
         fetch("https://health-coach-server-eta.vercel.app/jwt", {
           method: "POST",
           headers: {

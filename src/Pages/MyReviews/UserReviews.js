@@ -1,6 +1,6 @@
 import React from "react";
 import { FaEdit } from "react-icons/fa";
-import { FcDeleteRow } from "react-icons/fc";
+import { MdDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 
@@ -13,7 +13,7 @@ const UserReviews = ({ review, handleDelete }) => {
       <td>
         <label>
           <button onClick={() => handleDelete(_id)} className="btn btn-ghost">
-            <FcDeleteRow></FcDeleteRow>
+            <MdDeleteOutline className="text-2xl"></MdDeleteOutline>
           </button>
         </label>
       </td>
@@ -35,7 +35,7 @@ const UserReviews = ({ review, handleDelete }) => {
       <td>
         <Link to={`/update/${_id}`}>
         <button className="btn btn-ghost">
-          <FaEdit></FaEdit>
+          <FaEdit className="text-2xl"></FaEdit>
          
         </button>
         </Link>

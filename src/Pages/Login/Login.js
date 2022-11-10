@@ -53,7 +53,7 @@ const Login = () => {
           email: user.email,
         };
         console.log(currentUser);
-        //get jwt token
+        //jwt token
         fetch("https://health-coach-server-eta.vercel.app/jwt", {
           method: "POST",
           headers: {

@@ -8,7 +8,7 @@
 Health Coach
 
 ### features and Funtionalities of website
-- Health coach is a Online based training program service.<br/>
+- Health coach is a Online based fitness training program service.<br/>
 - When a unknown user visit my website, he/she will see only three route. These are Home, Blog, and login. <br/>
 - But an unknown user can see about me and also can see only three services. In the buttom of the services section there is a SEE All Button. then user can see all services and service details. <br/>
 - user can log into the website using google, email password. <br/>
@@ -19,7 +19,8 @@ Health Coach
 ### framework/library
 - Tailwind
 - daisy ui
+- flowbite
 - react
 - react icons font awesome
 - react router dom 
-- authentication  
+- firebase authentication  
