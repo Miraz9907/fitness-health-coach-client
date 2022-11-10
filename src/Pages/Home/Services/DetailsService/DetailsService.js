@@ -30,8 +30,8 @@ const DetailsService = () => {
       </div>
       
     </div>
-    <div className="">
-        <h3 className="text-2xl font-semibold text-red-300 text-center">Reviews</h3>
+    <div className="mt-5">
+        <h3 className="text-4xl font-semibold text-orange-600 my-4 text-center">All Reviews </h3>
 
         <Review serviceId ={_id}></Review>
          

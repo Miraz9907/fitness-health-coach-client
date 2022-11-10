@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import useTitle from "../hooks/useTitle";
 
 const UpdateReview = () => {
-  useTitle('Update Review');
+  useTitle("Update Review");
 
   const updatedUser = useLoaderData();
   const [user, setUser] = useState(updatedUser);
@@ -14,7 +14,7 @@ const UpdateReview = () => {
   const handleUpdateUser = (event) => {
     event.preventDefault();
     console.log(user);
-    fetch(`http://localhost:5000/review/${_id}`, {
+    fetch(`https://health-coach-server-eta.vercel.app/review/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -24,8 +24,8 @@ const UpdateReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-        //   alert("user updated");
-        toast.success("Updated review successfully", {
+          //   alert("user updated");
+          toast.success("Updated review successfully", {
             position: "top-right",
             autoClose: 1000,
             hideProgressBar: false,
@@ -34,7 +34,7 @@ const UpdateReview = () => {
             draggable: true,
             progress: undefined,
             theme: "dark",
-        });
+          });
           console.log(data);
         }
       });

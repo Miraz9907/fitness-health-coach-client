@@ -2,23 +2,23 @@
 - Health Coach is a online based training website. Where a user can enroll my services, and also purchaching our premium training program.
 
 ### Live site link
-- Website live link: [Tutor Academy](https://tutor-academy-e5447.web.app/)
+- Website live link: [Health Coach](https://health-coach-83680.web.app/)
 
 ## Website Name: 
-Tutor Academy
+Health Coach
 
 ### features and Funtionalities of website
-- After come into the website you can understandent the basic feature of the website.<br/>
-- Used dynamic route set in the header, when you click in the route you will reach dynamically. <br/>
-- Clickable subject list. when you click the subject name then it redirect to you into course.
-- user can read course details, and gain about the courses
-- user can log into the website using google, email password, and github
-- user cannot see the premium content of our website.
+- Health coach is a Online based training program service.<br/>
+- When a unknown user visit my website, he/she will see only three route. These are Home, Blog, and login. <br/>
+- But an unknown user can see about me and also can see only three services. In the buttom of the services section there is a SEE All Button. then user can see all services and service details. <br/>
+- user can log into the website using google, email password. <br/>
+- A user must loggined to give me a review <br/>
+- user cannot see the review page without login.
 - to see the premium content user must login
 
 ### framework/library
-- Bootstrap
-- react-bootstrap
+- Tailwind
+- daisy ui
 - react
 - react icons font awesome
 - react router dom 

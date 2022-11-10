@@ -14,62 +14,81 @@ import NotFound from "../NotFound/NotFound";
 import PrivateRoute from "../PrivateRouter/PrivateRoute";
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main></Main>,
-        errorElement: <NotFound></NotFound>,
-        children: [
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/login',
-                element: <Login></Login>
-            },
-            {
-                path: '/signup',
-                element: <SignUp></SignUp>
-            },
-            {
-                path: '/blog',
-                element: <Blog></Blog>
-            },
-            {
-                path: '/services',
-                element: <Allservices></Allservices>
-            },
-            {
-                path: '/myreviews',
-                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
-            },
-            {
-                path: '/addservice',
-                element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
-            },
-            {
-                path: '/update/:id',
-                element: <UpdateReview></UpdateReview>,
-                loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
-            },
-            {
-                path: '/services',
-                element: <Allservices></Allservices>
-            },
-            {
-                path: '/services/:id',
-                element: <DetailsService></DetailsService>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
-            },
-            {
-                path: '/review/:id',
-                element: <PrivateRoute><PlaceReview></PlaceReview></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
-            },
-
-
-        ]
-    }
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <NotFound></NotFound>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/services",
+        element: <Allservices></Allservices>,
+      },
+      {
+        path: "/myreviews",
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/addservice",
+        element: (
+          <PrivateRoute>
+            <AddServices></AddServices>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
+        loader: ({ params }) =>
+          fetch(
+            `https://health-coach-server-eta.vercel.app/review/${params.id}`
+          ),
+      },
+      {
+        path: "/services",
+        element: <Allservices></Allservices>,
+      },
+      {
+        path: "/services/:id",
+        element: <DetailsService></DetailsService>,
+        loader: ({ params }) =>
+          fetch(
+            `https://health-coach-server-eta.vercel.app/services/${params.id}`
+          ),
+      },
+      {
+        path: "/review/:id",
+        element: (
+          <PrivateRoute>
+            <PlaceReview></PlaceReview>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://health-coach-server-eta.vercel.app/services/${params.id}`
+          ),
+      },
+    ],
+  },
 ]);
 
 export default router;

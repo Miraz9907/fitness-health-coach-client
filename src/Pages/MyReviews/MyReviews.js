@@ -6,50 +6,55 @@ import "react-toastify/dist/ReactToastify.css";
 import useTitle from "../../hooks/useTitle";
 
 const MyReviews = () => {
-  useTitle('My Reviews');
-    
-  const { user, } = useContext(AuthContext);
+  useTitle("My Reviews");
+
+  const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    if(!user?.email){
-      return 
+    if (!user?.email) {
+      return;
     }
-    fetch(`http://localhost:5000/review?email=${user?.email}`)
-    
+    fetch(
+      `https://health-coach-server-eta.vercel.app/review?email=${user?.email}`,{
+          headers: {
+              authorization: `Bearer ${localStorage.getItem('health-token')}`
+          }
+      })
       .then((res) => {
-        
-        return res.json()
-    })
+        if (res.status === 401 || res.status === 403) {
+          return logOut();
+        }
+        return res.json();
+      })
       .then((data) => {
-        setReviews(data)
-        
-    })
-  }, [user?.email]);
+        setReviews(data);
+      });
+  }, [user?.email, logOut]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("are you sure to delete");
     if (proceed) {
-      fetch(`http://localhost:5000/review/${id}`, {
-        method: 'DELETE'
+      fetch(`https://health-coach-server-eta.vercel.app/review/${id}`, {
+        method: "DELETE",
       })
-      .then(res => res.json())
-      .then(data =>{
-        console.log(data);
-        if(data.deletedCount > 0){
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
             toast.success("Your review deleted successfully", {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
+              position: "top-right",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
             });
-            const remaining = reviews.filter(review => review._id !== id);
+            const remaining = reviews.filter((review) => review._id !== id);
             setReviews(remaining);
-        }
-      })
+          }
+        });
     }
   };
 
@@ -57,11 +62,15 @@ const MyReviews = () => {
     <div>
       {reviews.length === 0 ? (
         <>
-          <h2 className="text-center text-4xl text-red-400 font-bold">No reviews were added</h2>
+          <h2 className="text-center text-4xl text-red-400 font-bold">
+            No reviews were added
+          </h2>
         </>
       ) : (
         <>
-          <h2 className='text-orange-600 text-3xl font-bold text-center'>Your Total Reviews: {reviews.length}</h2>
+          <h2 className="text-orange-600 text-3xl font-bold text-center">
+            Your Total Reviews: {reviews.length}
+          </h2>
           <div className="overflow-x-auto w-full">
             <table className="table w-full">
               <thead>
@@ -77,15 +86,13 @@ const MyReviews = () => {
                 </tr>
               </thead>
               <tbody>
-              {
-                  
-                  reviews.map((review) => 
-                    <UserReviews
-                      key={review._id}
-                      review={review}
-                      handleDelete={handleDelete}
-                    ></UserReviews>
-                  )}
+                {reviews.map((review) => (
+                  <UserReviews
+                    key={review._id}
+                    review={review}
+                    handleDelete={handleDelete}
+                  ></UserReviews>
+                ))}
               </tbody>
             </table>
           </div>

@@ -30,7 +30,7 @@ const SignUp = () => {
             const user = result.user;
             console.log(user);
             form.reset();
-            navigate('/');
+            navigate('/login');
         })
         .catch(err => console.error(err));
     }
