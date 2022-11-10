@@ -12,7 +12,6 @@ const UserReviews = ({ review, handleDelete }) => {
     <tr>
       <td>
         <label>
-          {/* <button onClick={()=> handleDelete(_id)} className='btn btn-ghost'>X</button> */}
           <button onClick={() => handleDelete(_id)} className="btn btn-ghost">
             <FcDeleteRow></FcDeleteRow>
           </button>

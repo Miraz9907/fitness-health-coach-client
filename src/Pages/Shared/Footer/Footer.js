@@ -9,7 +9,7 @@ const Footer = () => {
         <p>
           Health Coach
           <br />
-          Providing reliable Fitness program. 
+          Providing reliable Fitness training program. 
         </p>
       </div>
       <div>

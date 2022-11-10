@@ -12,7 +12,7 @@ const Allservices = () => {
     return (
         <div>
             <div className='text-center'>
-                <p className='text-4xl font-bold text-red-400 my-4'>Services</p>
+                <p className='text-4xl font-bold text-red-400 my-4'> My all Services</p>
                 <h3 className='text-3xl font-semibold '>Service Area</h3>
                 <p className='text-xl'>Start working on your body today, and with our individual fitness program, already in 90 days you will see a totally different You in the mirror!</p>
             </div>

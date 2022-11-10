@@ -8,24 +8,23 @@ import useTitle from "../../hooks/useTitle";
 const MyReviews = () => {
   useTitle('My Reviews');
     
-  const { user, logOut } = useContext(AuthContext);
+  const { user, } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`,{
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('health-token')}`
-        }
-    })
+    if(!user?.email){
+      return 
+    }
+    fetch(`http://localhost:5000/review?email=${user?.email}`)
+    
       .then((res) => {
-        if(res.status === 401 || res.status === 403){
-            // return logOut()
-        }
+        
         return res.json()
     })
       .then((data) => {
         setReviews(data)
+        
     })
-  }, [user?.email, logOut]);
+  }, [user?.email]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("are you sure to delete");
@@ -37,7 +36,7 @@ const MyReviews = () => {
       .then(data =>{
         console.log(data);
         if(data.deletedCount > 0){
-            toast.success("deleted review successfully", {
+            toast.success("Your review deleted successfully", {
                 position: "top-right",
                 autoClose: 1000,
                 hideProgressBar: false,
@@ -62,7 +61,7 @@ const MyReviews = () => {
         </>
       ) : (
         <>
-          <h2>Your Total Reviews: {reviews.length}</h2>
+          <h2 className='text-orange-600 text-3xl font-bold text-center'>Your Total Reviews: {reviews.length}</h2>
           <div className="overflow-x-auto w-full">
             <table className="table w-full">
               <thead>
@@ -78,14 +77,15 @@ const MyReviews = () => {
                 </tr>
               </thead>
               <tbody>
-                {
-                reviews.map((review) => (
-                  <UserReviews
-                    key={review._id}
-                    review={review}
-                    handleDelete={handleDelete}
-                  ></UserReviews>
-                ))}
+              {
+                  
+                  reviews.map((review) => 
+                    <UserReviews
+                      key={review._id}
+                      review={review}
+                      handleDelete={handleDelete}
+                    ></UserReviews>
+                  )}
               </tbody>
             </table>
           </div>

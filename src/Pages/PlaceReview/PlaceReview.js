@@ -3,8 +3,10 @@ import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const PlaceReview = () => {
+    useTitle('Palce Review')
     const { user } = useContext(AuthContext);
     const placeReview = useLoaderData();
     const {_id, title, price} = placeReview;
@@ -44,7 +46,6 @@ const PlaceReview = () => {
             .then(data => {
                 console.log(data)
                 if(data.acknowledged){
-                    // alert('Review placed successfully')
                     toast.success("Review Post successfully", {
                         position: "top-right",
                         autoClose: 1000,

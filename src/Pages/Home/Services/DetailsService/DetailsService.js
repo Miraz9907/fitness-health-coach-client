@@ -32,6 +32,7 @@ const DetailsService = () => {
     </div>
     <div className="">
         <h3 className="text-2xl font-semibold text-red-300 text-center">Reviews</h3>
+
         <Review serviceId ={_id}></Review>
          
         <div className="text-center mt-4">
@@ -43,7 +44,7 @@ const DetailsService = () => {
             : 
             <div>
                 <Link to={`/review/${_id}`}> <button className="btn btn-primary">Please login to add a review</button> </Link>
-                {/* <h2>Please login to add a review <Link to={`/review/${_id}`}> <button className="btn ml-3">Login</button> </Link> </h2> */}
+                
             </div>
         }
         </div>

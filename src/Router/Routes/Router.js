@@ -10,12 +10,14 @@ import MyReviews from "../../Pages/MyReviews/MyReviews";
 import PlaceReview from "../../Pages/PlaceReview/PlaceReview";
 import SignUp from "../../Pages/SignUp/SignUp";
 import UpdateReview from "../../UpdateReview/UpdateReview";
+import NotFound from "../NotFound/NotFound";
 import PrivateRoute from "../PrivateRouter/PrivateRoute";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <NotFound></NotFound>,
         children: [
             {
                 path: '/',
